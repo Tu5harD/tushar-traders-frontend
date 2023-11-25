@@ -1,12 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Wrapper from '../src/components/Wrapper'
 import ProductCard from '../src/components/Product/ProductCard'
 import { useSelector } from 'react-redux'
+
 const Products = () => {
   const product = useSelector((state) => state.users.users);
   window.scrollTo({ top: 0, behavior: "smooth" });
+  // useEffect(() => {
+  //   document.title = "Products"
+  // }, []); 
+  document.title = "Products"
 
-  return (
+   return (
     <div className=' py-5'>
       <Wrapper>
       <div className="text-xl font-bold mb-1 flex items-center gap-2 pt-5">

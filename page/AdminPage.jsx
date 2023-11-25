@@ -11,6 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const AdminPage = () => {
   const products = useSelector((state) => state.users.users);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  document.title = "Admin Page"
 
   const checkCredentials = (event) => {
     event.preventDefault();

@@ -1,6 +1,7 @@
 import React from "react";
 import Wrapper from "../Wrapper";
 import Buttons from "../Buttons";
+import { Link } from "react-router-dom";
 const Landing = () => {
   return (
     <div className="bg-[url('/homebg.jpeg')] bg-cover bg-no-repeat bg-fixed bg-center	 ">
@@ -46,13 +47,10 @@ const Landing = () => {
                 >
                   Get started
                 </a> */}
-                <Buttons name="Contact" />
-                <a
-                  href="#"
-                  className="text-xl font-semibold leading-6 text-white"
-                >
-                  <span className="">→</span>
-                </a>
+                <Link to="/contact">
+                  <Buttons name="Contact" />
+                </Link>
+               
               </div>
             </div>
           </Wrapper>

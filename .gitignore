@@ -27,4 +27,3 @@ dist-ssr
 
 .env
 
-src/server/api.jsx

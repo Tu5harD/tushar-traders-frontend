@@ -15,7 +15,7 @@ const ProductDetails = () => {
   const [countHeart, setCountHeart] = useState(180);
   const [clicked, setClicked] = useState(false);
   const [color, setColor] = useState("gray");
-
+``
   useEffect(() => {
     const fetchProductData = async () => {
       try {
@@ -25,7 +25,6 @@ const ProductDetails = () => {
         );
 
         window.scrollTo({ top: 0, behavior: "smooth" });
-
         dispatch(getById(responsebyid.data));
       } catch (error) {
         console.error("Error fetching users:", error);

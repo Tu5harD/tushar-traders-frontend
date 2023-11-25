@@ -8,6 +8,7 @@ const HomePage = () => {
   const product = useSelector((state) => state.users.users);
   // className="bg-[url('/bg.jpg')] bg-cover bg-repeat bg-center "
   window.scrollTo({ top: 0, behavior: "smooth" });
+  document.title = "Namrata & Tushar Traders"
 
   return (
     <div>
