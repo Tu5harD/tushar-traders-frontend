@@ -85,7 +85,7 @@ const ProductDetails = () => {
                   </li>
                   <li>|</li>
                   <li className="flex items-center gap-1 text-gray-700 cursor-pointer">
-                    <div className=" text-orange-500">
+                    <div className=" text-red-500">
                       <LabelIcon />
                     </div>
                     Tag
