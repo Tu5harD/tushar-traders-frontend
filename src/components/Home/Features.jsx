@@ -36,7 +36,7 @@ export default function Features() {
     <div className="bg-white pt-10">
       <div className="mx-auto grid max-w-2xl grid-cols-1 items-center gap-x-8 gap-y-16 px-4 py-16 md:py-20 sm:px-6 sm:py-32 lg:max-w-7xl lg:grid-cols-2 lg:px-8 border border-gray-300 rounded-md">
         <div>
-          <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          <h2 className="text-xl font-bold tracking-tight text-gray-900 sm:text-4xl">
             गुरांच्या चाऱ्याचे फायदे{" "}
             <span className="text-4xl md:text-6xl">🐄 🌾</span>
           </h2>

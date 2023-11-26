@@ -1,17 +1,16 @@
-
 import React, { useState } from "react";
 import Wrapper from "../src/components/Wrapper";
 import Buttons from "../src/components/Buttons";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ProductCard from "../src/components/Product/ProductCard";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AdminPage = () => {
   const products = useSelector((state) => state.users.users);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  document.title = "Admin Page"
+  document.title = "Admin Page";
 
   const checkCredentials = (event) => {
     event.preventDefault();
@@ -24,7 +23,7 @@ const AdminPage = () => {
       // If credentials are correct, set isLoggedIn to true
       setIsLoggedIn(true);
     } else {
-      toast.error('Incorrect email or password. Please try again.', {
+      toast.error("Incorrect email or password. Please try again.", {
         position: "bottom-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -33,15 +32,16 @@ const AdminPage = () => {
         draggable: true,
         progress: undefined,
         theme: "light",
-        });
+      });
     }
   };
 
   window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
-    <Wrapper className="py-5">
-              <ToastContainer />
+    <div className="bg-[url('./bg.jpg')] bg-cover bg-repeat-y md:bg-repeat-x">
+<Wrapper className="py-5 ">
+      <ToastContainer />
 
       {isLoggedIn ? (
         <>
@@ -72,12 +72,11 @@ const AdminPage = () => {
         </>
       ) : (
         <section className="flex items-center justify-center">
-          <div className="bg-gray-100 flex rounded-2xl shadow-lg max-w-3xl p-5 items-center">
-            <div className="md:w-1/2 px-8 md:px-16">
+          <div className="bg-gray-100 flex rounded-2xl max-w-3xl p-5 items-center" style={{boxShadow: "rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset"}}>
+            <div className="md:w-full px-8 md:px-16">
               <h2 className="font-bold text-2xl text-[#002D74]">Login</h2>
-              <p className="text-xs mt-4 text-[#002D74]">
-                If you are already a member, easily log in
-              </p>
+              <p className="text-xs mt-4 text-red-500">
+              This page is now available only for administrators.</p>
 
               <form
                 action=""
@@ -150,7 +149,7 @@ const AdminPage = () => {
                 Login with Google
               </button>
 
-              <div className="mt-5 text-xs border-b border-[#002D74] py-4 text-[#002D74]">
+              {/* <div className="mt-5 text-xs border-b border-[#002D74] py-4 text-[#002D74]">
                 <a href="#">Forgot your password?</a>
               </div>
 
@@ -159,20 +158,14 @@ const AdminPage = () => {
                 <button className="py-2 px-5 bg-white border rounded-xl hover:scale-110 duration-300">
                   Register
                 </button>
-              </div>
-            </div>
-
-            <div className="md:block hidden w-1/2">
-              <img
-                className="rounded-2xl"
-                src="./login.webp"
-                alt="Authentication"
-              />
+              </div> */}
             </div>
           </div>
         </section>
       )}
     </Wrapper>
+    </div>
+    
   );
 };
 

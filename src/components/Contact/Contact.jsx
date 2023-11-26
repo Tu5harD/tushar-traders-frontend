@@ -45,8 +45,8 @@ const Contact = () => {
       });
   };
   return (
-    <section className="contact p-8 md:p-16 lg:p-32">
-      <div className="container mx-auto">
+    <section className="contact py-5">
+      <div className="container mx-auto bg-gray-50 px-5 py-5 md:py-20 md:px-20 rounded-xl " style={{boxShadow: "rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset"}}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Contact Details */}
           <div className="col-span-1 md:col-span-1">

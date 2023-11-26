@@ -5,6 +5,7 @@ import { addUser } from "../redux/userSlice";
 import { useDispatch } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { URL } from "../server/api";
 const CreateData = () => {
   const dispatch = useDispatch();
 
@@ -51,7 +52,7 @@ const CreateData = () => {
         dosage,
       };
       const response = await axios.post(
-        "http://localhost:3001/create",
+        `${URL}/create`,
         userData
       );
       dispatch(addUser(response.data));

@@ -1,9 +1,8 @@
 import React from "react";
-import Wrapper from "../Wrapper";
 
 const Map = () => {
   return (
-    <Wrapper>
+ 
       <div className=" py-5 ">
      
         <iframe
@@ -18,7 +17,7 @@ const Map = () => {
           referrerPolicy="no-referrer-when-downgrade"
         ></iframe>
       </div>
-    </Wrapper>
+
   );
 };
 
