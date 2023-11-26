@@ -30,7 +30,7 @@ const CreateData = () => {
         !dosage
       ) {
         toast.warn("Please fill in all fields!", {
-          position: "bottom-right",
+          position: "top-center",
           autoClose: 5000,
           hideProgressBar: false,
           closeOnClick: true,
@@ -57,7 +57,7 @@ const CreateData = () => {
       );
       dispatch(addUser(response.data));
       toast.success("Product added succesfully !", {
-        position: "bottom-right",
+        position: "top-center",
         autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,

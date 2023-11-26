@@ -1,6 +1,6 @@
 // Contact.js
 
-import React, { useState } from "react";
+import React, { useState  , useRef   } from "react";
 import Button from "@mui/material/Button";
 import SendIcon from "@mui/icons-material/Send";
 import PhoneAndroidIcon from "@mui/icons-material/PhoneAndroid";
@@ -8,45 +8,81 @@ import EmailIcon from "@mui/icons-material/Email";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 
 import emailjs from "@emailjs/browser";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const Contact = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [subject, setSubject] = useState("");
-  const [message, setMessage] = useState("");
+  const form = useRef();
 
-  const handleSubmit = (e) => {
+  const sendEmail = (e) => {
     e.preventDefault();
 
-    const serviceID = service_xdx999q; // Replace with your actual service ID
-    const templateID = template_297688s; // Replace with your actual template ID
-    const userID = Vhlc_EIfChq4oDLyZ; // Replace with your actual user ID
+    // Validate form fields before sending email
+    const name = form.current.name.value;
+    const email = form.current.email.value;
+    const subject = form.current.subject.value;
+    const message = form.current.message.value;
 
-    const templateParams = {
-      from_name: name,
-      to_name: "Tushar Traders",
-      from_email: email,
-      subject: subject,
-      message: message,
-    };
-
-    emailjs
-      .send(serviceID, templateID, templateParams, userID)
-      .then((result) => {
-        console.log(result.text);
-        alert("Message Sent!");
-        setName("");
-        setEmail("");
-        setSubject("");
-        setMessage("");
-      })
-      .catch((error) => {
-        console.log(error.text);
+    if (!name || !email || !subject || !message) {
+      // Display an error message if any of the fields are empty
+      toast.error("Please fill in all fields.", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
       });
+      return;
+    }
+
+    // If all fields have values, proceed with sending the email
+    emailjs
+      .sendForm("service_xdx999q", "template_h3b5afj", form.current, "Vhlc_EIfChq4oDLyZ")
+      .then(
+        (result) => {
+          console.log(result.text);
+          // Display success message
+          toast.success("Email Sent successfully!", {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+          // Reset the form after successful submission
+          e.target.reset();
+        },
+        (error) => {
+          console.log(error.text);
+          // Display error message
+          toast.error("Error sending email. Please try again later.", {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+        }
+      );
   };
   return (
     <section className="contact py-5">
-      <div className="container mx-auto bg-gray-50 px-5 py-5 md:py-20 md:px-20 rounded-xl " style={{boxShadow: "rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset"}}>
+      <ToastContainer />
+
+      <div
+        className="container mx-auto bg-gray-50 px-5 py-5 md:py-20 md:px-20 rounded-xl "
+        style={{
+          boxShadow: "rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px"
+        }}
+      >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Contact Details */}
           <div className="col-span-1 md:col-span-1">
@@ -89,21 +125,19 @@ const Contact = () => {
           </div>
           {/* Contact Form */}
           <div className="col-span-1 md:col-span-1">
-            <form>
+          <form ref={form} onSubmit={sendEmail}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <input
                   type="text"
                   className="form-control p-4 md:p-6 bg-gray-100 rounded-xl"
                   placeholder="Name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
+                  name="name"
                 />
                 <input
                   type="email"
                   className="form-control p-4 md:p-6 bg-gray-100 rounded-xl"
                   placeholder="Email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  name="email"
                 />
               </div>
               <div className="form-group mt-4 flex gap-5 flex-col">
@@ -111,16 +145,14 @@ const Contact = () => {
                   type="text"
                   className="form-control p-4 md:p-6 w-full bg-gray-100 rounded-xl"
                   placeholder="Subject"
-                  value={subject}
-                  onChange={(e) => setSubject(e.target.value)}
+                  name="subject"
                 />
                 <textarea
                   className="form-control p-4 md:p-6 bg-gray-100 rounded-xl"
                   rows="5"
                   id="comment"
                   placeholder="Message"
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
+                  name="message"
                 ></textarea>
               </div>
               {/* <button
@@ -133,7 +165,7 @@ const Contact = () => {
                 <Button
                   variant="contained"
                   endIcon={<SendIcon />}
-                  onClick={handleSubmit}
+                  type="submit"
                 >
                   Send
                 </Button>

@@ -3,7 +3,7 @@ import Wrapper from "../src/components/Wrapper";
 import Buttons from "../src/components/Buttons";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import ProductCard from "../src/components/Product/ProductCard";
+import Delete from "../src/components/Product/Delete";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -19,12 +19,12 @@ const AdminPage = () => {
     const email = event.target.email.value;
     const password = event.target.password.value;
 
-    if (email === "tush_0945" && password === "Tushar@0945") {
+    if (email === "tush_0945"  && password === "Tushar@0945" ) {
       // If credentials are correct, set isLoggedIn to true
       setIsLoggedIn(true);
     } else {
       toast.error("Incorrect email or password. Please try again.", {
-        position: "bottom-right",
+        position: "top-center",
         autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,
@@ -39,7 +39,6 @@ const AdminPage = () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
-    <div className="bg-[url('./bg.jpg')] bg-cover bg-repeat-y md:bg-repeat-x">
 <Wrapper className="py-5 ">
       <ToastContainer />
 
@@ -66,12 +65,12 @@ const AdminPage = () => {
 
           <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
             {products?.map((product) => (
-              <ProductCard key={product?._id} product={product} />
+              <Delete key={product?._id} product={product} />
             ))}
           </div>
         </>
       ) : (
-        <section className="flex items-center justify-center">
+        <div className="flex items-center justify-center">
           <div className="bg-gray-100 flex rounded-2xl max-w-3xl p-5 items-center" style={{boxShadow: "rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset"}}>
             <div className="md:w-full px-8 md:px-16">
               <h2 className="font-bold text-2xl text-[#002D74]">Login</h2>
@@ -161,10 +160,9 @@ const AdminPage = () => {
               </div> */}
             </div>
           </div>
-        </section>
+        </div>
       )}
     </Wrapper>
-    </div>
     
   );
 };

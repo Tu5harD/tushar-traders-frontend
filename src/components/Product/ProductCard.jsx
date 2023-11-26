@@ -7,7 +7,7 @@ const ProductCard = ({ product }) => {
       <div className="group relative">
         <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-2xl bg-gray-200	 lg:aspect-none group-hover:opacity-75 lg:h-80">
           <div class="absolute bg-sky-500 px-2 text-white p-1 rounded-br-2xl top-0 left-0 z-10 text-xs sm:text-sm">
-            More Information{" "}
+          अधिक माहिती साठी क्लिक करा
             <span className="text-sm">
               <AdsClickIcon />
             </span>
