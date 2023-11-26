@@ -64,7 +64,7 @@ import React from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import URL from "../../server/api"
+import { URL } from "../../server/api";
 const Delete = ({ product }) => {
   const handleDelete = async (id) => {
     try {
