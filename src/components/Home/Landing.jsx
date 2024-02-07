@@ -4,7 +4,7 @@ import Buttons from "../Buttons";
 import { Link } from "react-router-dom";
 const Landing = () => {
   return (
-    <div className="bg-[url('https://static.vecteezy.com/system/resources/thumb…s-cowshed-on-a-dairy-farm-generative-ai-photo.jpg')] bg-cover bg-no-repeat bg-fixed bg-center	 ">
+    <div className="bg-[url('https://i.ibb.co/fFYNPPp/homebg.webp')] bg-cover bg-no-repeat bg-fixed bg-center	 ">
       <div
         style={{
           background:
