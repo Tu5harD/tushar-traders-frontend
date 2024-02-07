@@ -39,6 +39,7 @@ const CreateData = () => {
           progress: undefined,
           theme: "dark",
         });
+        
         return; // Stop the function if any field is empty
       }
 

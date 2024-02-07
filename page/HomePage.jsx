@@ -6,9 +6,11 @@ import Features from "../src/components/Home/Features";
 import Landing from "../src/components/Home/Landing";
 const HomePage = () => {
   const product = useSelector((state) => state.users.users);
-  // className="bg-[url('/bg.jpg')] bg-cover bg-repeat bg-center "
-  window.scrollTo({ top: 0, behavior: "smooth" });
-  document.title = "Namrata & Tushar Traders"
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    document.title = "Namrata & Tushar Traders";
+  }, []);
+
 
   return (
     <div>

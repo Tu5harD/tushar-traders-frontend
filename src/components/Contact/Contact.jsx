@@ -1,6 +1,6 @@
 // Contact.js
 
-import React, { useState  , useRef   } from "react";
+import React, { useState, useRef } from "react";
 import Button from "@mui/material/Button";
 import SendIcon from "@mui/icons-material/Send";
 import PhoneAndroidIcon from "@mui/icons-material/PhoneAndroid";
@@ -15,8 +15,6 @@ const Contact = () => {
 
   const sendEmail = (e) => {
     e.preventDefault();
-
-    // Validate form fields before sending email
     const name = form.current.name.value;
     const email = form.current.email.value;
     const subject = form.current.subject.value;
@@ -39,7 +37,12 @@ const Contact = () => {
 
     // If all fields have values, proceed with sending the email
     emailjs
-      .sendForm("service_xdx999q", "template_h3b5afj", form.current, "Vhlc_EIfChq4oDLyZ")
+      .sendForm(
+        "service_xdx999q",
+        "template_h3b5afj",
+        form.current,
+        "Vhlc_EIfChq4oDLyZ"
+      )
       .then(
         (result) => {
           console.log(result.text);
@@ -80,7 +83,8 @@ const Contact = () => {
       <div
         className="container mx-auto bg-gray-50 px-5 py-5 md:py-20 md:px-20 rounded-xl "
         style={{
-          boxShadow: "rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px"
+          boxShadow:
+            "rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px",
         }}
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -125,7 +129,7 @@ const Contact = () => {
           </div>
           {/* Contact Form */}
           <div className="col-span-1 md:col-span-1">
-          <form ref={form} onSubmit={sendEmail}>
+            <form ref={form} onSubmit={sendEmail}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <input
                   type="text"
